@@ -1,0 +1,70 @@
+:root {
+    --color1: black;
+    --color2: dodgerblue;
+    --color3: goldenrod;
+}
+
+body {
+    font-family: 'Bangers', cursive;
+    font-weight: bold;
+
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 25px;    
+} #time {
+    display: flex;
+} #seeScores:hover {
+    cursor: pointer;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    font-weight: bolder;
+    font-size: large;
+    width: 500px;
+    height: auto;
+    align-items: center;
+    margin: auto;
+} article button, #submit {
+    background-color: var(--color2);
+    color: white;
+    border-radius: 4px;
+} article>* {
+    margin: 15px auto;
+}
+
+ul {
+    display: grid;
+    grid-template-columns: 70px 70px;
+}
+
+li {
+    list-style: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.questions button {
+    align-self: flex-start;
+    margin: 2px 0;
+}
+
+#complete>* {
+    margin: 10px;
+}
+
+#correct, #incorrect {
+   border-top: 2px solid var(--color1);
+   margin: auto;
+   text-align: center;
+   width: 600px;
+}
+
+    
