@@ -5,19 +5,29 @@
 }
 
 body {
-    font-family: 'Bangers', cursive;
+    font-family: 'Encode Sans SC', sans-serif;
     font-weight: bold;
-
+    background-color: black;
+    color: white;
 }
 
 header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 25px;    
-} #time {
+    font-size: 25px;
+}
+
+main {
+    border: white;
+    border-style: solid;
+}
+
+#time {
     display: flex;
-} #seeScores:hover {
+}
+
+#seeScores:hover {
     cursor: pointer;
 }
 
@@ -30,11 +40,15 @@ article {
     height: auto;
     align-items: center;
     margin: auto;
-} article button, #submit {
+}
+
+article button, #submit {
     background-color: var(--color2);
-    color: white;
+    color: rgb(255, 255, 255);
     border-radius: 4px;
-} article>* {
+}
+
+article>* {
     margin: 15px auto;
 }
 
@@ -61,10 +75,9 @@ li {
 }
 
 #correct, #incorrect {
-   border-top: 2px solid var(--color1);
-   margin: auto;
-   text-align: center;
-   width: 600px;
+    border-top: 2px solid var(--color1);
+    margin: auto;
+    text-align: center;
+    width: 600px;
 }
 
-    

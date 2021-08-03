@@ -9,71 +9,73 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
     <title>Code Quiz</title>
 </head>
+<body>
 <div>
     <header>
         <a id="seeScores">See Scores</a>
-        <span id="time">
-            <p>Time Left:</p>
+        <span class="time">
+            <p class="timeleft">Time Left:</p>
             <p id="timeClock">00</p>
         </span>
     </header>
 </div>
 <main>
     <!----Start of the code quiz---->
-    <article id="start" class="">
+    <article id="start">
         <h1>Code Quiz Javascript Fundamentals</h1>
         <p>Let's test what you know with this code quiz!</p>
-        <button>Begin</button>
+        <button class="startTest" id="beginQuiz">Begin</button>
     </article>
     <!--Begining of questions-->
-    <article id="question-one" class="questions hidden">
+    <article id="question-one" class="hidden">
         <p>What is considered a string value?</p>
-        <button>5</button>
-        <button>true</button>
-        <button>"john"</button>
-        <button>john</button>
+        <button id="wrong1">5</button>
+        <button id="wrong2">true</button>
+        <button id="right1">"john"</button>
+        <button id="wrong3">jonh</button>
     </article>
     <!--question2-->
-    <article id="question-two" class="questions hidden">
+    <article id="question-two" class="hidden">
         <p>How do you correctly console log?</p>
-        <button>consolelog()</button>
-        <button>console.log()</button>
-        <button>log.console()</button>
-        <button>log.the.console""</button>
+        <button id="wrongone">consolelog()</button>
+        <button id="rightone">console.log()</button>
+        <button id="wrongtwo">log.console()</button>
+        <button id="wrongthree">log.the.console""</button>
     </article>
     <!---question3-->
-    <article id="question-three" class="questions hidden">
+    <article id="question-three" class="hidden">
         <p>What does "i" stand for in a for loop function?</p>
-        <button>imagine</button>
-        <button>incredible</button>
-        <button>index</button>
-        <button>inside</button>
+        <button id="wrongone1">imagine</button>
+        <button id="wrongtwo2">incredible</button>
+        <button id="rightone1">index</button>
+        <button id="wrongthree3">inside</button>
     </article>
     <!---questions4-->
-    <article id="question-four" class="questions hidden">
+    <article id="question-four" class="hidden">
         <p>Which of the following is the correct way to save a JavaScript file?</p>
-        <button>script.js</button>
-        <button>script.java</button>
-        <button>script.jspt</button>
-        <button>script.jaspt</button>
+        <button id="right1one">script.js</button>
+        <button id="wrong1one">script.java</button>
+        <button id="wrong2two">script.jspt</button>
+        <button id="wrong3three">script.jaspt</button>
     </article>
     <!---question5-->
-    <article id="question-five" class="questions hidden">
-        <p>How do you redefine a value of a delcared variable on a javascript file? Example: var quiz = "code quiz"</p>
-        <button>redefine var quiz = "new code quiz"</button>
-        <button>quiz = "new code quiz"</button>
-        <button>new var = "new code quiz"</button>
-        <button>declare new var = "new code quiz"</button>
+    <article id="question-five" class="hidden">
+        <p>How do you add a value to the end of an existing array?</p>
+        <button id="wrongone1one">pop()</button>
+        <button id="rightone1one">push()</button>
+        <button id="wrongtwo2two">shift()</button>
+        <button id="wrongthree3three">unshift()</button>
     </article>
     <!---questions6-->
-    <article id="question-six" class="questions hidden">
+    <article id="question-six" class="hidden">
         <p>Do functions get hoisted to the top automatically in a javascript file when the browser reads the file?</p>
-        <button>No</button>
-        <button>Yes</button>
-        <button>Maybe</button>
-        <button>I don't care</button>
+        <button id="wrong1oneone">No</button>
+        <button id="right1twotwo">Yes</button>
+        <button id="wrong2twotwo">Maybe</button>
+        <button id="wrong3threthre">I don't care</button>
     </article>
     <!---End of Quiz-->
     <article id="complete" class="hidden">
@@ -97,16 +99,15 @@
             <button>Start Over</button>
             <button type="reset">Clear</button>
         </span>
-        <section id="correct" class="hidden">
+        <section id="Correct" class="hidden">
             <h3>Correct!</h3>
         </section>
-        <section id="incorrect" class="hidden">
+        <section id="Incorrect" class="hidden">
             <h3>Incorrect</h3>
         </section>
     </article>
 </main>
 
-<script src="script.js"></script>
 </body>
 
 </html>
