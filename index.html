@@ -27,55 +27,57 @@
     <article id="start">
         <h1>Code Quiz Javascript Fundamentals</h1>
         <p>Let's test what you know with this code quiz!</p>
-        <button class="startTest" id="beginQuiz">Begin</button>
+        <button id="beginQuiz">Begin</button>
     </article>
     <!--Begining of questions-->
     <article id="question-one" class="hidden">
         <p>What is considered a string value?</p>
-        <button id="wrong1">5</button>
-        <button id="wrong2">true</button>
+        <button id="wrongone">5</button>
+        <button id="wrongone">true</button>
         <button id="right1">"john"</button>
-        <button id="wrong3">jonh</button>
+        <button id="wrongone">jonh</button>
+        <p id="Correct" class="hidden">Correct</p>
+        <p id="Incorrect" class="hidden">Incorrect</p>
     </article>
     <!--question2-->
     <article id="question-two" class="hidden">
         <p>How do you correctly console log?</p>
         <button id="wrongone">consolelog()</button>
         <button id="rightone">console.log()</button>
-        <button id="wrongtwo">log.console()</button>
-        <button id="wrongthree">log.the.console""</button>
+        <button id="wrongone">log.console()</button>
+        <button id="wrongone">log.the.console""</button>
     </article>
     <!---question3-->
     <article id="question-three" class="hidden">
         <p>What does "i" stand for in a for loop function?</p>
-        <button id="wrongone1">imagine</button>
-        <button id="wrongtwo2">incredible</button>
+        <button id="wrongone">imagine</button>
+        <button id="wrongone">incredible</button>
         <button id="rightone1">index</button>
-        <button id="wrongthree3">inside</button>
+        <button id="wrongone">inside</button>
     </article>
     <!---questions4-->
     <article id="question-four" class="hidden">
         <p>Which of the following is the correct way to save a JavaScript file?</p>
         <button id="right1one">script.js</button>
-        <button id="wrong1one">script.java</button>
-        <button id="wrong2two">script.jspt</button>
-        <button id="wrong3three">script.jaspt</button>
+        <button id="wrongone">script.java</button>
+        <button id="wrongone">script.jspt</button>
+        <button id="wrongone">script.jaspt</button>
     </article>
     <!---question5-->
     <article id="question-five" class="hidden">
         <p>How do you add a value to the end of an existing array?</p>
-        <button id="wrongone1one">pop()</button>
+        <button id="wrongone">pop()</button>
         <button id="rightone1one">push()</button>
-        <button id="wrongtwo2two">shift()</button>
-        <button id="wrongthree3three">unshift()</button>
+        <button id="wrongone">shift()</button>
+        <button id="wrongone">unshift()</button>
     </article>
     <!---questions6-->
     <article id="question-six" class="hidden">
         <p>Do functions get hoisted to the top automatically in a javascript file when the browser reads the file?</p>
-        <button id="wrong1oneone">No</button>
+        <button id="wrongone">No</button>
         <button id="right1twotwo">Yes</button>
-        <button id="wrong2twotwo">Maybe</button>
-        <button id="wrong3threthre">I don't care</button>
+        <button id="wrongone">Maybe</button>
+        <button id="wrongone">I don't care</button>
     </article>
     <!---End of Quiz-->
     <article id="complete" class="hidden">
@@ -99,10 +101,11 @@
             <button>Start Over</button>
             <button type="reset">Clear</button>
         </span>
-        <section id="Correct" class="hidden">
-            <h3>Correct!</h3>
-        </section>
-        <section id="Incorrect" class="hidden">
+        <span>
+        <h3 id="Wrong">Correct!</h3>
+        </span>
+    
+        <section id="Right" class="hidden">
             <h3>Incorrect</h3>
         </section>
     </article>

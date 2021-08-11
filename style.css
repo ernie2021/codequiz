@@ -18,10 +18,6 @@ header {
     font-size: 25px;
 }
 
-main {
-    border: white;
-    border-style: solid;
-}
 
 #time {
     display: flex;
@@ -74,7 +70,7 @@ li {
     margin: 10px;
 }
 
-#correct, #incorrect {
+#Right, #Wrong {
     border-top: 2px solid var(--color1);
     margin: auto;
     text-align: center;
