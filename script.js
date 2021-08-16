@@ -41,7 +41,7 @@ var score = document.getElementById("scores")
 var done = document.getElementById("complete")
 var initials = document.getElementById("enterInitials")
 var scoreCard = document.getElementById("scoreCard")
-var highScoreDate = JSON.parse(localStorage.getItem("highScores")) || []
+var highScoresData = JSON.parse(localStorage.getItem("highScores")) || []
 var submit = document.getElementById("submit")
 
 
