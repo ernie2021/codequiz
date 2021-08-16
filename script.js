@@ -127,7 +127,7 @@ function objectNew () {
 
 function scoreList() {
     scoreCard.innerHTML = '';
-    let newScores = JSON.parse(localStorage.getItem("highScores"))
+    let newScores = JSON.parse(localStorage.setItem("highScores"))
     for (let i = 0; i < newScores.length; i++) {
         const list = newScores[i];
         let listScore = document.createElement("li");
@@ -135,13 +135,6 @@ function scoreList() {
         scoreCard.appendChild(listScore)
 
     }
-}
-
-function startOver() {
-    if (startOverNew) {
-     
-    }
-    
 }
 
 // Right answers event listeners //
@@ -288,6 +281,7 @@ wrongAnswer18.addEventListener("click", function () {
 submit.addEventListener("click", function () {
     document.getElementById("complete").remove();
     document.getElementById("scores").classList.remove("hidden");
+    scoreList();
 })
 
 startOverNew.addEventListener("click", function () {
@@ -296,4 +290,3 @@ startOverNew.addEventListener("click", function () {
 })
 
 objectNew();
-scoreList();
