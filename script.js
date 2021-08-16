@@ -41,7 +41,7 @@ var score = document.getElementById("scores")
 var done = document.getElementById("complete")
 var initials = document.getElementById("enterInitials")
 var scoreCard = document.getElementById("scoreCard")
-var highScoreInfo = JSON.parse(localStorage.getItem("highScores")) || []
+var highScoreDate = JSON.parse(localStorage.getItem("highScores")) || []
 var submit = document.getElementById("submit")
 
 
@@ -114,10 +114,10 @@ function incorrectAnswer() {
 }
 
 
-function objectNew (i, s) {
+function objectNew () {
     var newScore = {
-        initials: i,
-        score: s,
+        initials: "i",
+        score: "s",
     }
     highScoresData.push(newScore)
     //JSON.stringify the array and save it to localStorage
@@ -280,6 +280,8 @@ wrongAnswer18.addEventListener("click", function () {
 
 submit.addEventListener("click", function () {
     document.getElementById("scores").classList.remove("hidden");
-    scoreList();
-
+    document.getElementById("complete").remove();
 })
+
+objectNew();
+scoreList();
