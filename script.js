@@ -43,6 +43,7 @@ var initials = document.getElementById("enterInitials")
 var scoreCard = document.getElementById("scoreCard")
 var highScoresData = JSON.parse(localStorage.getItem("highScores")) || []
 var submit = document.getElementById("submit")
+var startOverNew = document.getElementById("startover")
 
 
 //time clock variables//
@@ -136,6 +137,12 @@ function scoreList() {
     }
 }
 
+function startOver() {
+    if (startOverNew) {
+     
+    }
+    
+}
 
 // Right answers event listeners //
 rightAnswerOne.addEventListener("click", function () {
@@ -279,8 +286,13 @@ wrongAnswer18.addEventListener("click", function () {
 //End Of Questions//
 
 submit.addEventListener("click", function () {
-    document.getElementById("scores").classList.remove("hidden");
     document.getElementById("complete").remove();
+    document.getElementById("scores").classList.remove("hidden");
+})
+
+startOverNew.addEventListener("click", function () {
+    document.getElementById("scores").remove();
+    document.getElementById("beginQuiz").classList.appendChild();
 })
 
 objectNew();
