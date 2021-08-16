@@ -7,17 +7,57 @@ let rightAnswerFour = document.getElementById("right1one")
 let rightAnswerFive = document.getElementById("rightone1one")
 let rightAnswerSix = document.getElementById("right1twotwo")
 // Wrong Answers Variables //
-let wrongAnswer = document.getElementById("wrongone")
+//question one//
+let wrongAnswer1 = document.getElementById("wrong1")
+let wrongAnswer2 = document.getElementById("wrong2")
+let wrongAnswer3 = document.getElementById("wrong3")
+//question two//
+let wrongAnswer4 = document.getElementById("wrongone")
+let wrongAnswer5 = document.getElementById("wrongtwo")
+let wrongAnswer6 = document.getElementById("wrongthree")
+//question three//
+let wrongAnswer7 = document.getElementById("wrongone1")
+let wrongAnswer8 = document.getElementById("wrongtwo2")
+let wrongAnswer9 = document.getElementById("wrongthree3")
+//question four//
+let wrongAnswer10 = document.getElementById("wrong1one")
+let wrongAnswer11 = document.getElementById("wrong2two")
+let wrongAnswer12 = document.getElementById("wrong3three")
+//question five//
+let wrongAnswer13 = document.getElementById("wrongone1one")
+let wrongAnswer14 = document.getElementById("wrongtwo2two")
+let wrongAnswer15 = document.getElementById("wrongthree3three")
+//question six//
+let wrongAnswer16 = document.getElementById("wrong1oneone")
+let wrongAnswer17 = document.getElementById("wrong2twotwo")
+let wrongAnswer18 = document.getElementById("wrong3threethree")
 
+// correct and incorrect variables //
+var correct = document.getElementById("Correct")
+var incorrect = document.getElementById("Incorrect")
+
+//score and initials variables//
+var score = document.getElementById("scores")
+var done = document.getElementById("complete")
+var initials = document.getElementById("enterInitials")
+var scoreCard = document.getElementById("scoreCard")
+var highScoreInfo = JSON.parse(localStorage.getItem("highScores")) || []
+var submit = document.getElementById("submit")
+
+
+//time clock variables//
 let mainEl = document.querySelector(".timeClock")
 let timeEl = document.querySelector(".timeleft")
 let sCount = 0;
 
+
+// Begin button event listener and function for seconds left//
 startButton.addEventListener("click", function () {
     document.getElementById("beginQuiz").remove();
+    document.getElementById("intro").remove();
     document.getElementById("question-one").classList.remove("hidden")
 
-    let secondsLeft = 45;
+    let secondsLeft = 30;
 
     setInterval(function () {
         secondsLeft--;
@@ -25,6 +65,10 @@ startButton.addEventListener("click", function () {
         if (secondsLeft >= 0) {
             mainEl = document.getElementById("timeClock");
             mainEl.innerHTML = secondsLeft;
+
+        }
+
+        if (rightAnswerSix || wrongAnswer16 || wrongAnswer17 || wrongAnswer18) {
 
         }
 
@@ -37,7 +81,7 @@ startButton.addEventListener("click", function () {
 
 })
 
-
+//function for "times up" message//
 function sendMessage() {
     timeEl.textContent = " ";
     let timeUp = document.createElement("img")
@@ -45,45 +89,197 @@ function sendMessage() {
     timeEl.appendChild(timeUp);
 }
 
-function wronganswers() {
-    if (wrongAnswers === true) {
-    alert("Incorrect")
+//correct answer displayed function//
+function correctAnswer() {
+
+    if (rightAnswerOne) {
+        correct.classList.remove("hidden")
+
+        setTimeout(function () {
+            correct.classList.add("hidden")
+        }, 1200)
+    }
+}
+
+//incorrect answer displayed function//
+function incorrectAnswer() {
+
+    if (wrongAnswer1) {
+        incorrect.classList.remove("hidden")
+
+        setTimeout(function () {
+            incorrect.classList.add("hidden")
+        }, 1200)
     }
 }
 
 
+function objectNew (i, s) {
+    var newScore = {
+        initials: i,
+        score: s,
+    }
+    highScoresData.push(newScore)
+    //JSON.stringify the array and save it to localStorage
+    localStorage.setItem("highScores", JSON.stringify(highScoresData))
+}
+
+function scoreList() {
+    scoreCard.innerHTML = '';
+    let newScores = JSON.parse(localStorage.getItem("highScores"))
+    for (let i = 0; i < newScores.length; i++) {
+        const list = newScores[i];
+        let listScore = document.createElement("li");
+        listScore.textContent = list.initials + " " + list.score;
+        scoreCard.appendChild(listScore)
+
+    }
+}
+
+
+// Right answers event listeners //
 rightAnswerOne.addEventListener("click", function () {
     document.getElementById("question-two").classList.remove("hidden");
     document.getElementById("question-one").remove();
-    alert("Correct!");
+    correctAnswer();
 })
 
 rightAnswerTwo.addEventListener("click", function () {
     document.getElementById("question-three").classList.remove("hidden");
     document.getElementById("question-two").remove();
-    alert("Correct!")
+    correctAnswer();
 })
 
 rightAnswerThree.addEventListener("click", function () {
     document.getElementById("question-four").classList.remove("hidden");
     document.getElementById("question-three").remove();
-    alert("Correct!")
+    correctAnswer();
 })
 
 rightAnswerFour.addEventListener("click", function () {
     document.getElementById("question-five").classList.remove("hidden");
     document.getElementById("question-four").remove();
-    alert("Correct!")
+    correctAnswer();
 })
 
 rightAnswerFive.addEventListener("click", function () {
     document.getElementById("question-six").classList.remove("hidden");
     document.getElementById("question-five").remove();
-    alert("Correct!")
+    correctAnswer();
 })
 
 rightAnswerSix.addEventListener("click", function () {
     document.getElementById("complete").classList.remove("hidden")
     document.getElementById("question-six").remove();
-    alert("Correct!")
+    correctAnswer();
+})
+//End of right answers//
+
+//question one wrong answers//
+wrongAnswer1.addEventListener("click", function () {
+    document.getElementById("question-two").classList.remove("hidden");
+    document.getElementById("question-one").remove();
+    incorrectAnswer();
+})
+wrongAnswer2.addEventListener("click", function () {
+    document.getElementById("question-two").classList.remove("hidden");
+    document.getElementById("question-one").remove();
+    incorrectAnswer();
+})
+wrongAnswer3.addEventListener("click", function () {
+    document.getElementById("question-two").classList.remove("hidden");
+    document.getElementById("question-one").remove();
+    incorrectAnswer();
+})
+
+//question two wrong answers//
+wrongAnswer4.addEventListener("click", function () {
+    document.getElementById("question-three").classList.remove("hidden");
+    document.getElementById("question-two").remove();
+    incorrectAnswer();
+})
+wrongAnswer5.addEventListener("click", function () {
+    document.getElementById("question-three").classList.remove("hidden");
+    document.getElementById("question-two").remove();
+    incorrectAnswer();
+})
+wrongAnswer6.addEventListener("click", function () {
+    document.getElementById("question-three").classList.remove("hidden");
+    document.getElementById("question-two").remove();
+    incorrectAnswer();
+})
+
+//question three wrong answers //
+wrongAnswer7.addEventListener("click", function () {
+    document.getElementById("question-four").classList.remove("hidden");
+    document.getElementById("question-three").remove();
+    incorrectAnswer();
+})
+wrongAnswer8.addEventListener("click", function () {
+    document.getElementById("question-four").classList.remove("hidden");
+    document.getElementById("question-three").remove();
+    incorrectAnswer();
+})
+wrongAnswer9.addEventListener("click", function () {
+    document.getElementById("question-four").classList.remove("hidden");
+    document.getElementById("question-three").remove();
+    incorrectAnswer();
+})
+
+//question four wrong answers//
+wrongAnswer10.addEventListener("click", function () {
+    document.getElementById("question-five").classList.remove("hidden");
+    document.getElementById("question-four").remove();
+    incorrectAnswer();
+})
+wrongAnswer11.addEventListener("click", function () {
+    document.getElementById("question-five").classList.remove("hidden");
+    document.getElementById("question-four").remove();
+    incorrectAnswer();
+})
+wrongAnswer12.addEventListener("click", function () {
+    document.getElementById("question-five").classList.remove("hidden");
+    document.getElementById("question-four").remove();
+    incorrectAnswer();
+})
+
+//question five wrong answers //
+wrongAnswer13.addEventListener("click", function () {
+    document.getElementById("question-six").classList.remove("hidden");
+    document.getElementById("question-five").remove();
+    incorrectAnswer();
+})
+wrongAnswer14.addEventListener("click", function () {
+    document.getElementById("question-six").classList.remove("hidden");
+    document.getElementById("question-five").remove();
+    incorrectAnswer();
+})
+wrongAnswer15.addEventListener("click", function () {
+    document.getElementById("question-six").classList.remove("hidden");
+    document.getElementById("question-five").remove();
+    incorrectAnswer();
+})
+
+//question six wrong answers//
+wrongAnswer16.addEventListener("click", function () {
+    document.getElementById("complete").classList.remove("hidden");
+    document.getElementById("question-six").remove();
+    incorrectAnswer();
+})
+wrongAnswer17.addEventListener("click", function () {
+    document.getElementById("complete").classList.remove("hidden");
+    document.getElementById("question-six").remove();
+    incorrectAnswer();
+})
+wrongAnswer18.addEventListener("click", function () {
+    document.getElementById("complete").classList.remove("hidden");
+    document.getElementById("question-six").remove();
+    incorrectAnswer();
+})
+//End Of Questions//
+
+submit.addEventListener("click", function () {
+    document.getElementById("scores").classList.remove("hidden");
+    scoreList();
+
 })

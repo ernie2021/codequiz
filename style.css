@@ -7,7 +7,7 @@
 body {
     font-family: 'Encode Sans SC', sans-serif;
     font-weight: bold;
-    background-color: black;
+    background-color: rgb(8, 8, 8);
     color: white;
 }
 
@@ -77,3 +77,12 @@ li {
     width: 600px;
 }
 
+#Correct {
+    color: rgb(41, 206, 0);
+    text-align: center;
+}
+
+#Incorrect {
+    color: rgb(238, 0, 0);
+    text-align: center;
+}
