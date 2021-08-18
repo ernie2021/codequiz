@@ -44,6 +44,7 @@ var scoreCard = document.getElementById("scoreCard")
 var highScoresData = JSON.parse(localStorage.getItem("highScores")) || []
 var submit = document.getElementById("submit")
 var startOverNew = document.getElementById("startover")
+var points = 0;
 
 
 //time clock variables//
@@ -122,12 +123,12 @@ function objectNew () {
     }
     highScoresData.push(newScore)
     //JSON.stringify the array and save it to localStorage
-    localStorage.setItem("highScores", JSON.stringify(highScoresData))
+    localStorage.setItem("myKey", "myValue", JSON.stringify(highScoresData))
 }
 
 function scoreList() {
     scoreCard.innerHTML = '';
-    let newScores = JSON.parse(localStorage.setItem("highScores"))
+    let newScores = JSON.parse(localStorage.getItem("myKey", "myValue"))
     for (let i = 0; i < newScores.length; i++) {
         const list = newScores[i];
         let listScore = document.createElement("li");
@@ -141,36 +142,42 @@ function scoreList() {
 rightAnswerOne.addEventListener("click", function () {
     document.getElementById("question-two").classList.remove("hidden");
     document.getElementById("question-one").remove();
+    points++;
     correctAnswer();
 })
 
 rightAnswerTwo.addEventListener("click", function () {
     document.getElementById("question-three").classList.remove("hidden");
     document.getElementById("question-two").remove();
+    points++;
     correctAnswer();
 })
 
 rightAnswerThree.addEventListener("click", function () {
     document.getElementById("question-four").classList.remove("hidden");
     document.getElementById("question-three").remove();
+    points++;
     correctAnswer();
 })
 
 rightAnswerFour.addEventListener("click", function () {
     document.getElementById("question-five").classList.remove("hidden");
     document.getElementById("question-four").remove();
+    points++;
     correctAnswer();
 })
 
 rightAnswerFive.addEventListener("click", function () {
     document.getElementById("question-six").classList.remove("hidden");
     document.getElementById("question-five").remove();
+    points++;
     correctAnswer();
 })
 
 rightAnswerSix.addEventListener("click", function () {
     document.getElementById("complete").classList.remove("hidden")
     document.getElementById("question-six").remove();
+    points++;
     correctAnswer();
 })
 //End of right answers//
