@@ -39,7 +39,7 @@ var incorrect = document.getElementById("Incorrect")
 //score and initials variables//
 var score = document.getElementById("scores")
 var done = document.getElementById("complete")
-var initials = document.getElementById("enterInitials")
+var initials = document.getElementById("initial")
 var scoreCard = document.getElementById("scoreCard")
 var highScoresData = JSON.parse(localStorage.getItem("highScores")) || []
 var submit = document.getElementById("submit")
@@ -115,26 +115,33 @@ function incorrectAnswer() {
     }
 }
 
-
+// this function will create and set the info for initials and score in local storage//
 function objectNew () {
     var newScore = {
-        initials: "i",
-        score: "s",
+        initials: initials,
+        score: points,
     }
     highScoresData.push(newScore)
     //JSON.stringify the array and save it to localStorage
-    localStorage.setItem("myKey", "myValue", JSON.stringify(highScoresData))
+    localStorage.setItem("myKey", JSON.stringify(highScoresData))
 }
 
+// this function will set the score on //
 function scoreList() {
     scoreCard.innerHTML = '';
-    let newScores = JSON.parse(localStorage.getItem("myKey", "myValue"))
+    let newScores = JSON.parse(localStorage.getItem("myKey")) || []
     for (let i = 0; i < newScores.length; i++) {
         const list = newScores[i];
-        let listScore = document.createElement("li");
+        let listScore = document.getElementById("scoreCard");
         listScore.textContent = list.initials + " " + list.score;
         scoreCard.appendChild(listScore)
 
+    }
+}
+
+function startOver() {
+    if (clicked.startOverNew) {
+        document.getElementById("beginQuiz").append();
     }
 }
 
@@ -178,6 +185,7 @@ rightAnswerSix.addEventListener("click", function () {
     document.getElementById("complete").classList.remove("hidden")
     document.getElementById("question-six").remove();
     points++;
+    document.getElementById("score").textContent = points
     correctAnswer();
 })
 //End of right answers//
@@ -271,16 +279,19 @@ wrongAnswer15.addEventListener("click", function () {
 wrongAnswer16.addEventListener("click", function () {
     document.getElementById("complete").classList.remove("hidden");
     document.getElementById("question-six").remove();
+    document.getElementById("score").textContent = points
     incorrectAnswer();
 })
 wrongAnswer17.addEventListener("click", function () {
     document.getElementById("complete").classList.remove("hidden");
     document.getElementById("question-six").remove();
+    document.getElementById("score").textContent = points
     incorrectAnswer();
 })
 wrongAnswer18.addEventListener("click", function () {
     document.getElementById("complete").classList.remove("hidden");
     document.getElementById("question-six").remove();
+    document.getElementById("score").textContent = points
     incorrectAnswer();
 })
 //End Of Questions//
@@ -289,11 +300,11 @@ submit.addEventListener("click", function () {
     document.getElementById("complete").remove();
     document.getElementById("scores").classList.remove("hidden");
     scoreList();
+    objectNew();
 })
 
 startOverNew.addEventListener("click", function () {
     document.getElementById("scores").remove();
     document.getElementById("beginQuiz").classList.appendChild();
+    startOver();
 })
-
-objectNew();
