@@ -1,4 +1,5 @@
-// Right Answer Variables //
+// Right Answer Variables //\
+const start = document.getElementById("start")
 let startButton = document.getElementById("beginQuiz")
 let rightAnswerOne = document.getElementById("right1")
 let rightAnswerTwo = document.getElementById("rightone")
@@ -118,25 +119,27 @@ function incorrectAnswer() {
 // this function will create and set the info for initials and score in local storage//
 function objectNew () {
     var newScore = {
-        initials: initials,
+        initials: "",
         score: points,
     }
     highScoresData.push(newScore)
     //JSON.stringify the array and save it to localStorage
-    localStorage.setItem("myKey", JSON.stringify(highScoresData))
+    localStorage.setItem("highScores", JSON.stringify(highScoresData))
 }
 
 // this function will set the score on //
 function scoreList() {
     scoreCard.innerHTML = '';
-    let newScores = JSON.parse(localStorage.getItem("myKey")) || []
-    for (let i = 0; i < newScores.length; i++) {
+    let newScores = JSON.parse(localStorage.getItem("highScores")) || []
+    for (let i = 0; i < newScores.length; i++) { 
         const list = newScores[i];
-        let listScore = document.getElementById("scoreCard");
-        listScore.textContent = list.initials + " " + list.score;
+        let listScore = document.createElement("li");
+        listScore.textContent = list.initials + " " + list.points;
         scoreCard.appendChild(listScore)
-
     }
+    let listScore = document.createElement("li");
+        listScore.textContent = initials.value + " " + points;
+        scoreCard.appendChild(listScore)
 }
 
 function startOver() {
@@ -305,6 +308,5 @@ submit.addEventListener("click", function () {
 
 startOverNew.addEventListener("click", function () {
     document.getElementById("scores").remove();
-    document.getElementById("beginQuiz").classList.appendChild();
-    startOver();
+    start.appendChild("beginQuiz");
 })
