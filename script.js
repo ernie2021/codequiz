@@ -60,7 +60,7 @@ startButton.addEventListener("click", function () {
     document.getElementById("intro").remove();
     document.getElementById("question-one").classList.remove("hidden")
 
-    let secondsLeft = 30;
+    let secondsLeft = 5;
 
     setInterval(function () {
         secondsLeft--;
@@ -89,6 +89,7 @@ function sendMessage() {
     timeEl.textContent = " ";
     let timeUp = document.createElement("img")
     timeUp.setAttribute("src", "images/timesUp.png");
+    timeUp.setAttribute("width", "300px");
     timeEl.appendChild(timeUp);
 }
 
